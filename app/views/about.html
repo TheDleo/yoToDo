@@ -1,1 +1,6 @@
-<p>This is the about view.</p>
+<p class="jumbotron">This is the about view.</p>
+<div ng-repeat="thing in awesomeThings" class="marketing">
+	<ul>
+		<li ng-model="thing">{{thing}}</li>
+	</ul>
+</div>
