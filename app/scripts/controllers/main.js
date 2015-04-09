@@ -8,15 +8,16 @@
  * Controller of the yoToDoApp
  */
 angular.module('yoToDoApp')
-  .controller('MainCtrl', function ($scope, localStorageService) {
-    	var todosInStore = localStorageService.get('todos');
+  .controller('MainCtrl', ['$scope','localStorageService', function ($scope, localStorageService) {
+    console.log('main controller entered');
+    var todosInStore = localStorageService.get('todos');
 
 	$scope.todos = todosInStore || [];
 
 	$scope.$watch('todos', function () {
 	  localStorageService.set('todos', $scope.todos);
 
-	}, true );
+	}, true);
 
 	$scope.addTodo = function () {
     	$scope.todos.push($scope.todo);
@@ -25,4 +26,4 @@ angular.module('yoToDoApp')
     $scope.removeTodo = function (index) {
     	$scope.todos.splice(index, 1);
     };
-  });
+  }]);
