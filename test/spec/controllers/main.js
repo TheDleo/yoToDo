@@ -46,7 +46,7 @@ describe('Controller: MainCtrl', function () {
   });
 
   it('should remove an item from the todo list', function () {
-    scope.todo = 'Item 1'
+    scope.todo = 'Item 1';
     scope.addTodo();
     scope.$digest();
     expect(localStorageService.set).toHaveBeenCalledWith('todos', [ 'Item 1' ]);
